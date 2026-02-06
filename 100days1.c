@@ -2,13 +2,14 @@
 
 int main() {
     int n, pos, x;
-    int arr[100];   // assuming max size 100
 
-    // Input size
+    // Input size of array
     scanf("%d", &n);
 
+    int arr[n + 1];   // ek extra space insert ke liye
+
     // Input array elements
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
@@ -18,8 +19,8 @@ int main() {
     // Input element to insert
     scanf("%d", &x);
 
-    // Shift elements to the right
-    for (int i = n; i >= pos; i--) {
+    // Shift elements to right
+    for(int i = n; i >= pos; i--) {
         arr[i] = arr[i - 1];
     }
 
@@ -27,7 +28,7 @@ int main() {
     arr[pos - 1] = x;
 
     // Print updated array
-    for (int i = 0; i < n + 1; i++) {
+    for(int i = 0; i <= n; i++) {
         printf("%d ", arr[i]);
     }
 

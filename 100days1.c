@@ -1,34 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    int n, pos, x;
+    int n, pos;
 
     // Input size of array
     scanf("%d", &n);
 
-    int arr[n + 1];   // ek extra space insert ke liye
+    int arr[n];
 
     // Input array elements
     for(int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    // Input position (1-based)
+    // Input position to delete (1-based)
     scanf("%d", &pos);
 
-    // Input element to insert
-    scanf("%d", &x);
-
-    // Shift elements to right
-    for(int i = n; i >= pos; i--) {
-        arr[i] = arr[i - 1];
+    // Check if position is valid
+    if(pos < 1 || pos > n) {
+        printf("Invalid position");
+        return 0;
     }
 
-    // Insert element
-    arr[pos - 1] = x;
+    // Shift elements to left
+    for(int i = pos - 1; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
 
-    // Print updated array
-    for(int i = 0; i <= n; i++) {
+    // Print updated array (n-1 elements)
+    for(int i = 0; i < n - 1; i++) {
         printf("%d ", arr[i]);
     }
 
